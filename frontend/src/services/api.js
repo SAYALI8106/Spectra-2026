@@ -53,6 +53,14 @@ export const getDestinations = async () => {
   }
 };
 
+export const getFestivals = async () => {
+  const response = await api.get('/festivals');
+  if (response.data?.success && Array.isArray(response.data.festivals)) {
+    return response.data.festivals;
+  }
+  throw new Error('Festival guide is unavailable');
+};
+
 // Client-side fallback generator for 100% reliable demo execution
 function generateFallbackItinerary(params) {
   const { days = 2, budget = 5000, travelType = 'Family', interests = ['Heritage', 'Food'], language = 'English' } = params;

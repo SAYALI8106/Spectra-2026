@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Sparkles, MapPin, Bookmark, Globe, User, ShieldAlert, Utensils, Menu, X, Landmark } from 'lucide-react';
+import { Compass, Sparkles, MapPin, Bookmark, Globe, User, ShieldAlert, Utensils, Menu, X, Landmark, PartyPopper } from 'lucide-react';
 import { t } from '../data/translations';
 
 export default function Navbar({ activeTab, setActiveTab, currentLang, setCurrentLang, onOpenAuth, savedCount = 0 }) {
@@ -84,6 +84,13 @@ export default function Navbar({ activeTab, setActiveTab, currentLang, setCurren
             >
               <Utensils className="w-4 h-4 text-[#E87516]" />
               <span>{t('navTaste', currentLang)}</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('festivals')}
+              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center space-x-1.5 cursor-pointer ${activeTab === 'festivals' ? 'bg-[#741C35] text-white shadow-md' : 'text-[#6F625D] hover:text-[#741C35] hover:bg-[#F8D8AD]/40'}`}
+            >
+              <PartyPopper className="w-4 h-4 text-[#E87516]" />
+              <span>Festivals</span>
             </button>
             <button
               onClick={() => setActiveTab('safety')}
@@ -196,6 +203,12 @@ export default function Navbar({ activeTab, setActiveTab, currentLang, setCurren
             className={`w-full text-left py-2.5 px-4 rounded-xl ${activeTab === 'food' ? 'bg-[#741C35] text-white' : 'text-[#332A27]'}`}
           >
             {t('navTaste', currentLang)}
+          </button>
+          <button
+            onClick={() => { setActiveTab('festivals'); setMobileMenu(false); }}
+            className={`w-full text-left py-2.5 px-4 rounded-xl ${activeTab === 'festivals' ? 'bg-[#741C35] text-white' : 'text-[#332A27]'}`}
+          >
+            Festivals
           </button>
           <button
             onClick={() => { setActiveTab('safety'); setMobileMenu(false); }}

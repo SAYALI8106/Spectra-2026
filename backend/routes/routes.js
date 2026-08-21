@@ -1,6 +1,60 @@
 const express = require("express");
 const router = express.Router();
 
+// Curated cultural reference for visitors. Dates vary each year because many
+// festivals follow lunar or regional calendars; `usualPeriod` is deliberately
+// a travel-planning guide rather than a fixed date.
+const INDIAN_FESTIVALS = [
+  {
+    id: "diwali", name: "Diwali", alternateName: "Deepavali", usualPeriod: "October–November", regions: ["Across India", "Especially North and West India"], image: "/images/festivals/diwali.png",
+    overview: "The five-day Festival of Lights brings families together to illuminate homes with diyas, create rangoli, exchange sweets, and share festive meals.",
+    history: "Diwali has several regional origin traditions. In much of North India it marks Rama's return to Ayodhya after exile, as narrated in the Ramayana. It is also associated with Lakshmi Puja, while in parts of South India Deepavali recalls Krishna's victory over Narakasura. Jain communities observe it in connection with Mahavira's nirvana, and Sikh history marks Bandi Chhor Divas at the same time.",
+    visitorEtiquette: "Ask before photographing worship or private homes; remove shoes where requested and keep clear of rangoli and oil lamps."
+  },
+  {
+    id: "raksha-bandhan", name: "Raksha Bandhan", alternateName: "Rakhi", usualPeriod: "July–August", regions: ["Across India"], image: "/images/festivals/raksha-bandhan.png",
+    overview: "A family festival centred on the bond of care and mutual responsibility between siblings and other loved ones. A rakhi thread is tied on the wrist, followed by gifts and sweets.",
+    history: "The festival falls on the full moon of the Hindu month of Shravana. Its meaning of protection is expressed in multiple stories and regional customs, including accounts involving Krishna and Draupadi. Modern celebrations are inclusive: rakhis may be exchanged among sisters, cousins, friends, and people who regard one another as family.",
+    visitorEtiquette: "It is primarily a family occasion; accept invitations warmly and avoid treating the ceremony as a staged photo opportunity."
+  },
+  {
+    id: "ganesh-chaturthi", name: "Ganesh Chaturthi", alternateName: "Vinayaka Chaturthi", usualPeriod: "August–September", regions: ["Maharashtra", "Goa", "Karnataka", "Telangana", "Tamil Nadu"], image: "/images/festivals/ganesh-chaturthi.png",
+    overview: "This ten-day celebration honours Ganesha, widely revered as the remover of obstacles. Homes and public pandals install idols, offer prayers and modaks, and conclude with visarjan immersion processions.",
+    history: "Domestic observances have deep roots in western and southern India. In Maharashtra, public Ganesh festivals were notably promoted in the late nineteenth century by Bal Gangadhar Tilak as a shared civic gathering under colonial rule. Today celebrations range from intimate home pujas to large public installations.",
+    visitorEtiquette: "Follow crowd guidance during processions, do not block worshippers, and favour organised or eco-conscious immersion events where possible."
+  },
+  {
+    id: "holi", name: "Holi", alternateName: "Festival of Colours", usualPeriod: "February–March", regions: ["Across North and Central India", "Celebrated nationwide"], image: "/images/festivals/holi.png",
+    overview: "Holi welcomes spring with music, sweets, and joyful play with coloured powder and water. Holika Dahan, a bonfire held the preceding evening, is an important part of the observance.",
+    history: "A central tradition recalls Prahlada's devotion and the defeat of Holika, expressing the victory of good over harm. In Braj, Holi is also connected to Krishna and Radha, with distinctive local forms such as Lathmar Holi. The festival has ancient literary and artistic references and many regional practices.",
+    visitorEtiquette: "Use skin-safe colours, get consent before applying colour or water, protect cameras and valuables, and respect people who choose not to participate."
+  },
+  {
+    id: "eid-al-fitr", name: "Eid al-Fitr", alternateName: "Meethi Eid", usualPeriod: "Varies with the Islamic lunar calendar", regions: ["Across India"], image: "/images/festivals/eid-al-fitr.png",
+    overview: "Eid al-Fitr marks the close of Ramadan. Communities gather for Eid prayers, give charitable alms, visit relatives, and share celebratory dishes such as seviyan.",
+    history: "The festival originates in the early Islamic community and is observed worldwide after the month of fasting. In India it has developed rich regional food, clothing, and neighbourhood traditions while retaining its core themes of gratitude, prayer, and generosity.",
+    visitorEtiquette: "Dress modestly for mosque visits, follow local entry guidance, and wait for an invitation before joining a family meal."
+  },
+  {
+    id: "durga-puja", name: "Durga Puja", alternateName: "Sharodotsav", usualPeriod: "September–October", regions: ["West Bengal", "Assam", "Odisha", "Tripura"], image: "/images/festivals/durga-puja.png",
+    overview: "Elaborate pandals, artistry, music, food, and community gatherings honour Goddess Durga during the autumn festival, culminating in immersion ceremonies.",
+    history: "Durga Puja is connected to the Devi Mahatmya narrative of Durga's victory over Mahishasura. Historical patronage by Bengali households developed into the large public celebrations familiar today; Kolkata's Durga Puja was inscribed on UNESCO's Representative List of Intangible Cultural Heritage in 2021.",
+    visitorEtiquette: "Expect queues at popular pandals, keep moving through crowded viewing areas, and respect restricted worship zones."
+  },
+  {
+    id: "pongal", name: "Pongal", alternateName: "Thai Pongal", usualPeriod: "January", regions: ["Tamil Nadu", "Tamil communities worldwide"], image: "/images/festivals/holi.png",
+    overview: "A four-day harvest festival celebrating the sun, cattle, land, and the new harvest. Families cook the overflowing pongal dish in a symbolic expression of abundance.",
+    history: "Pongal is rooted in Tamil agricultural life and coincides with the sun's northward movement, observed around the month of Thai. Its ceremonies honour Surya and, on Mattu Pongal, cattle that support farming communities.",
+    visitorEtiquette: "Observe home rituals from a respectful distance and do not touch decorated cattle without the owner's permission."
+  },
+  {
+    id: "onam", name: "Onam", alternateName: "Kerala Harvest Festival", usualPeriod: "August–September", regions: ["Kerala"], image: "/images/festivals/onam.png",
+    overview: "Kerala celebrates Onam with pookalam flower designs, boat races, cultural performances, and the elaborate vegetarian Onam sadhya feast.",
+    history: "The festival is associated with the return of the beloved King Mahabali, whose story appears in the Vamana tradition. It also reflects Kerala's harvest season and is celebrated across communities in the state as a major cultural festival.",
+    visitorEtiquette: "For a sadhya, follow hosts' guidance on seating and eating by hand; do not step on pookalam designs."
+  }
+];
+
 const PUNE_SITES = [
   {
     id: "shaniwar-wada",
@@ -95,6 +149,23 @@ router.get("/test", (req, res) => {
     success: true,
     message: "HeritageAI Pune API server is operational 🚀",
   });
+});
+
+// GET /api/festivals — Indian festival guide for cultural tourists
+router.get("/festivals", (req, res) => {
+  const assetHost = `${req.protocol}://${req.get("host")}`;
+  const festivals = INDIAN_FESTIVALS.map((festival) => ({
+    ...festival,
+    image: `${assetHost}${festival.image}`
+  }));
+  res.json({ success: true, count: festivals.length, festivals });
+});
+
+// GET /api/festivals/:id — individual festival detail
+router.get("/festivals/:id", (req, res) => {
+  const festival = INDIAN_FESTIVALS.find(({ id }) => id === req.params.id.toLowerCase());
+  if (!festival) return res.status(404).json({ success: false, error: "Festival not found." });
+  res.json({ success: true, festival: { ...festival, image: `${req.protocol}://${req.get("host")}${festival.image}` } });
 });
 
 // GET all Pune destinations

@@ -12,6 +12,7 @@ import AiChatAssistant from './components/AiChatAssistant';
 import AuthModal from './components/AuthModal';
 import Footer from './components/Footer';
 import SplashScreen from './components/SplashScreen';
+import FestivalGuide from './components/FestivalGuide';
 
 import { PUNE_DESTINATIONS } from './data/puneData';
 import { t } from './data/translations';
@@ -281,6 +282,9 @@ export default function App() {
         {activeTab === 'food' && (
           <FoodDiscovery currentLang={currentLang} />
         )}
+
+        {/* FESTIVALS TAB */}
+        {activeTab === 'festivals' && <FestivalGuide />}
 
         {/* SAFETY TAB */}
         {activeTab === 'safety' && (
