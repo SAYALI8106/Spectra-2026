@@ -5,7 +5,7 @@ import { createGuideRequest } from '../services/guideService';
 export default function GuideModal({ guide, onClose }) {
   if (!guide) return null;
 
-  const TARGET_WHATSAPP_NUMBER = "918669039693";
+  const TARGET_WHATSAPP_NUMBER = "918855003659";
 
   const [showRequestForm, setShowRequestForm] = useState(false);
   const [formData, setFormData] = useState({
