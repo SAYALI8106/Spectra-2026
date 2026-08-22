@@ -1,4 +1,4 @@
-# Atithya AI (आतिथ्य AI) 🚩
+# Atithya AI (आतिथ्य AI) 
 ### Smart Heritage & Cultural Tourism Platform for Indian Cities
 **Spectra 2026 Hackathon Project — Problem Statement #5 Solution**
 
@@ -13,7 +13,7 @@
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 **Atithya AI (आतिथ्य AI)** is an end-to-end, AI-powered Smart Heritage Tourism Platform designed to reimagine cultural exploration across Indian cities. Built specifically for **Problem Statement 5 of Spectra 2026**, Atithya AI addresses key challenges in Indian tourism: fragmented information, language barriers, inefficient itinerary planning, safety concerns, and disconnected local commerce.
 
@@ -21,7 +21,7 @@ The initial implementation focuses on **Pune — The Cultural & Historical Capit
 
 ---
 
-## 🎯 Problem Statement #5 Alignment
+## Problem Statement #5 Alignment
 
 > **Problem Statement Title:** *Smart Heritage & Cultural Tourism: Reimagining Indian Cities through Digital Innovation*
 >
@@ -34,44 +34,44 @@ The initial implementation focuses on **Pune — The Cultural & Historical Capit
 
 ---
 
-## ✨ Key Features & Technical Accomplishments
+## Key Features & Technical Accomplishments
 
-### 1. 🤖 AI-Powered Smart Trip Planner (`/api/plan-trip`)
+### 1. AI-Powered Smart Trip Planner (`/api/plan-trip`)
 - **Customizable Inputs:** Travel duration (1–30 days), budget in INR (₹), companion group (Solo, Couple, Family, Friends), interests (Heritage, Forts, Food, Museums, Craft), and target language.
 - **Structured Dynamic Output:** Generates day-by-day schedules with specific activity timings, duration, entry costs, travel modes, food suggestions, and safety tips.
 - **Financial Breakdown:** Automated breakdown across Food, Transport, Entry Fees, Activities, and Shopping, calculating remaining budget and trip sustainability score.
 - **Resilient AI Pipeline:** Powered by Google Gemini API with an automated fallback itinerary engine in Node.js to ensure zero downtime.
 
-### 2. 💬 Multilingual AI Tourism Assistant (`/api/ask-ai`)
+### 2. Multilingual AI Tourism Assistant (`/api/ask-ai`)
 - **Real-Time Conversational AI:** Integrated floating chatbot fluent in **English**, **Marathi (मराठी)**, and **Hindi (हिंदी)**.
 - **Domain-Specific Knowledge:** Answers instant queries about monument history, visiting hours, ticket prices (Indian vs. Foreigner rates), dress codes, and local travel directions.
 - **Context-Aware Follow-ups:** Retains conversation history for seamless multi-turn Q&A.
 
-### 3. 🏰 Interactive Heritage & Monument Explorer
+### 3. Interactive Heritage & Monument Explorer
 - **Curated Monument Directory:** Detailed profiles for Shaniwar Wada, Aga Khan Palace, Sinhagad Fort, Pataleshwar Cave Temple, Raja Dinkar Kelkar Museum, Lal Mahal, and more.
 - **Rich Media & Audio Guides:** 360° virtual view triggers, historical significance highlights, exact GPS coordinates, best visiting times, and crowd density indicators.
 - **Interactive Map Integration:** Powered by Leaflet maps with custom marker pins and category filters.
 
-### 4. 🗣️ Local Tour Guide Booking Ecosystem
+### 4. Local Tour Guide Booking Ecosystem
 - **Verified Guide Directory:** Lists licensed local tour guides with rating scores, review counts, spoken languages, specializations (Peshwa History, Fort Treks, Food Walks), and daily rates.
 - **Direct WhatsApp / Request Modal (`GuideModal.jsx`):** Allows tourists to instantly book or request a guide via direct messaging integration.
 
-### 5. 🍛 Gastronomy & Food Trail Discovery (`FoodDiscovery.jsx`)
+### 5. Gastronomy & Food Trail Discovery (`FoodDiscovery.jsx`)
 - **Authentic Culinary Showcase:** Promotes iconic local delicacies such as Puneri Misal Pav, Mango Mastani, Pithla Bhakri, Chitale Bakarwadi, Thalipeeth, and Ukadiche Modak.
 - **Dietary Preferences:** Filters by Pure Veg, Vegan, and Authentic Maharashtrian eateries with location tips and price ranges.
 
-### 6. 🛍️ Local Artisans & Indigenous Commerce (`LocalCommerce.jsx`)
+### 6. Local Artisans & Indigenous Commerce (`LocalCommerce.jsx`)
 - **Artisan Empowerment:** Direct digital storefront for local craftspeople selling Puneri Pagadi, Paithani Sarees, Brassware antiques, and Warli Paintings.
 - **Cultural Preservation:** Educates visitors on the history of artisan peths (Kasba Peth, Raviwar Peth) and connects buyers directly to makers.
 
-### 7. 🛡️ Integrated Tourist Safety & Emergency Hub (`SafetySection.jsx`)
+### 7. Integrated Tourist Safety & Emergency Hub (`SafetySection.jsx`)
 - **Instant SOS Hotlines:** One-tap dialing for National Emergency (112), Tourist Helpline (1363), Women Safety (1091), and Ambulance (102).
 - **Localized Safety Infrastructure:** Information on nearby police stations, major hospitals, night travel advisories, and crowd safety tips.
 
-### 8. 👤 User Authentication & Saved Itineraries (`AuthModal.jsx`)
+### 8. User Authentication & Saved Itineraries (`AuthModal.jsx`)
 - **Personalized Dashboard:** Firebase and LocalStorage authentication letting users sign in, bookmark favorite heritage destinations, and save custom AI-generated itineraries.
 
-### 9. 🎨 Traditional Indian UI/UX Design System
+### 9. Traditional Indian UI/UX Design System
 - **Aesthetic Excellence:** Designed with a curated Indian color palette — Royal Maroon (`#741C35`), Deep Saffron (`#E87516`), Warm Sand (`#FAF1E4`), and Soft Cream (`#F8D8AD`).
 - **Cultural Art Motifs:** SVG Mandala art (`MandalaArt.jsx`) and Warli tribal art (`WarliArt.jsx`) elements paired with smooth micro-animations and an authentic splash screen (`SplashScreen.jsx`).
 
@@ -147,7 +147,7 @@ Spectra2026/
 
 ---
 
-## ⚡ Quick Start & Installation Guide
+## Quick Start & Installation Guide
 
 ### Prerequisites
 - **Node.js** (v18.x or higher)
@@ -193,7 +193,7 @@ npm run dev
 
 ---
 
-## 🌐 API Reference
+## API Reference
 
 ### 1. Health Check
 - **`GET /api/test`**
@@ -232,14 +232,14 @@ npm run dev
 
 ---
 
-## 🚀 Scalability & Future Roadmap
+## Scalability & Future Roadmap
 
 While current demonstration showcases **Pune**, the Atithya AI platform is architected to seamlessly expand to India's top heritage cities:
 
-- 🕌 **Jaipur (Pink City):** Hawa Mahal, Amer Fort, Johari Bazaar artisans.
-- 🕉️ **Varanasi (Kashi):** Kashi Vishwanath, Ganga Ghats, Banarasi Silk weavers.
-- 🏛️ **Delhi:** Red Fort, Qutub Minar, Chandni Chowk food walk.
-- 🏰 **Mysuru:** Mysuru Palace, Chamundi Hill, Mysore Silk & Sandalwood crafts.
+- **Jaipur (Pink City):** Hawa Mahal, Amer Fort, Johari Bazaar artisans.
+- **Varanasi (Kashi):** Kashi Vishwanath, Ganga Ghats, Banarasi Silk weavers.
+- **Delhi:** Red Fort, Qutub Minar, Chandni Chowk food walk.
+- **Mysuru:** Mysuru Palace, Chamundi Hill, Mysore Silk & Sandalwood crafts.
 
 ### Technical Next Steps:
 1. **AR/VR 3D Monument Reconstruction:** Immersive 360° AR overlays for destroyed historical fort structures.
@@ -248,7 +248,7 @@ While current demonstration showcases **Pune**, the Atithya AI platform is archi
 
 ---
 
-## 👥 Team & Acknowledgments
+## Team & Acknowledgments
 
 Developed with ❤️ for **Spectra 2026 Hackathon**.
 Special thanks to local historians, cultural enthusiasts, and open-source contributors supporting Indian Heritage preservation.
